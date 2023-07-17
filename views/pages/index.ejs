@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="js/index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA-Simple-User-DB</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <main>
+      <label>Name: </label>
+      <input type="text" id="name-input" />
+      <button id="add-name-btn">Add Name</button>
+
+      <br /><br /><br />
+      <div>
+        <input placeholder="Search By Name" id="search-input" />
+        <button id="search-btn">Search</button>
+      </div>
+
+      <table id="table">
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Date Added</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </thead>
+        <tbody>
+          <% if(data.length > 0){ %> <% data.forEach((item)=>{%>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.date %></td>
+            <td>
+              <button onClick="deleteUser(event)" data-id="<%= item.id  %>">
+                Delete
+              </button>
+            </td>
+            <td>
+              <button onClick="editUser(event)" data-id="<%= item.id  %>">
+                Edit
+              </button>
+            </td>
+          </tr>
+          <%});%> <% } else { %>
+          <tr>
+            <td class="no-data" colspan="5">No Data Found</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
