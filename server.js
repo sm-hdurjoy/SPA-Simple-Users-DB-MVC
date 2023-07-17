@@ -23,4 +23,10 @@ app.get('/', function(req, res) {
   })
 });
 
+// app.get('/', function(req, res) {
+//   searchUser().then(data => {
+//     console.log(data);
+//   })
+// });
+
 app.listen(PORT, () => console.log("App is running..."));
