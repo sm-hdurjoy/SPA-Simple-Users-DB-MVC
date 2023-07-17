@@ -7,4 +7,3 @@ function editUser (evt){
   console.log(evt.target.dataset.id);
 }
 
-

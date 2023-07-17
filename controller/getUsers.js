@@ -1,5 +1,5 @@
-const connection = require('../dbService')
-const User = require('../model/User')
+const connection = require("../dbService");
+const User = require("../model/User");
 
 async function getAllData() {
   try {
@@ -9,8 +9,8 @@ async function getAllData() {
       connection.query(query, (err, result) => {
         if (err) reject(new Error(err.message));
         let users = [];
-        result.forEach(element => {
-          users.push(new User(element.id, element.name, element.date_added))
+        result.forEach((element) => {
+          users.push(new User(element.id, element.name, element.date_added));
         });
         resolve(users);
       });
@@ -22,4 +22,4 @@ async function getAllData() {
   }
 }
 
-module.exports = getAllData
+module.exports = getAllData;
